@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夸赞展示</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loading-container" id="loadingContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); z-index: 100; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="progress-container" style="width: 80%; height: 20px; background: #f3f3f3; border-radius: 10px; overflow: hidden;">
+            <div class="progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e); transition: width 0.3s ease;"></div>
+        </div>
+        <div class="loading-text" style="margin-top: 20px; font-size: 18px; color: #333;">夸夸马上就来</div>
+    </div>
+    <div class="praise-container" id="praiseContainer">
+        <!-- 夸赞内容将在这里动态生成 -->
+    </div>
+    <button id="backBtn" style="display: none; position: fixed; bottom: 20px; right: 20px;">再夸一次</button>
+    <script src="app.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const name = sessionStorage.getItem('praiseName');
+    const keywords = sessionStorage.getItem('praiseKeywords');
+    if (name && keywords) {
+      generatePraises(name, keywords);
+    }
+  });
+</script>
+</body>
+</html>
